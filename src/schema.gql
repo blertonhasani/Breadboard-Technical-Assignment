@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AggregatedPart {
+  description: String!
+  manufacturerLeadTime: Float!
+  manufacturerName: String!
+  manufacturerPartNumber: String
+  name: String!
+  packaging: [Packaging!]!
+  productDoc: String!
+  productImageUrl: String!
+  productUrl: String!
+  sourceParts: [SupplierName!]!
+  specifications: [Specification!]!
+  totalStock: Float!
+}
+
+type Packaging {
+  manufacturerLeadTime: String
+  minimumOrderQuantity: Float!
+  priceBreaks: [PriceBreak!]!
+  quantityAvailable: Float!
+  supplier: SupplierName!
+  type: String!
+  unitPrice: Float!
+}
+
+type PriceBreak {
+  breakQuantity: Float!
+  totalPrice: Float!
+  unitPrice: Float!
+}
+
+type Query {
+  getAggregatedPart(partNumber: String!): AggregatedPart
+}
+
+type Specification {
+  key: String!
+  value: String!
+}
+
+enum SupplierName {
+  ARROW
+  TTI
+}
